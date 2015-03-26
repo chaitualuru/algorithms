@@ -1,0 +1,14 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines()
+
+for c in contents:
+	c = c.strip()
+	result = 0
+	for s in c:
+		result += int(s)
+		
+	print result

@@ -1,0 +1,43 @@
+class qu1:
+	def __init__(self):
+		self.stack1 = []
+		self.stack2 = []
+
+	def empty(self):
+		return len(self.stack1) == 0 and len(self.stack2) == 0
+
+	def enqueue(self, item): # constant time inserts
+		return self.stack1.append(item)
+
+	def dequeue(self):
+		if self.empty():
+			raise Empty
+		else:
+			if not self.stack2:
+				while self.stack1:
+					val = self.stack1.pop()
+					self.stack2.append(val)
+			return self.stack2.pop()
+
+class qu2:
+	def __init__(self):
+		self.st1 = []
+		self.st2 = []
+
+	def empty(self):
+		return len(self.st1) == 0 and len(self.st2) == 0
+
+	def enqueue(self, item):
+		while self.st1:
+			val = self.st1.pop()
+			self.st2.append(val)
+		self.st1.append(item)
+		while self.st2:
+			val = self.st2.pop()
+			self.st1.append(val)
+
+	def dequeue(self):
+		if self.empty():
+			raise Empty
+		else:
+			return self.t1.pop()

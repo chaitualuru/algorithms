@@ -1,0 +1,36 @@
+def look_and_say(s, iters):
+	while iters > 0:
+		nums = list()
+		count = 1
+		l = 1
+		while l <= len(s):
+			if l < len(s) and s[l] == s[l - 1]:
+				count += 1
+			else:
+				nums.append(str(count))
+				nums.append(s[l - 1])
+				count = 1
+			l += 1
+		s = ''.join(nums)
+		print s
+		iters -= 1
+
+# 1
+def look(s, iters):
+	while iters > 0:
+		result = list()
+		count = 1
+		read_index = 1
+		while read_index <= len(s):
+			if read_index < len(s) and s[read_index] == s[read_index-1]:
+				count += 1
+			else:
+				result.append(str(count))
+				result.append(s[read_index-1])
+				count = 1
+			read_index += 1
+		s = ''.join(result)
+		print s
+		iters -= 1
+
+look_and_say('1', 5)

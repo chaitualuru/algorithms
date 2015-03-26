@@ -1,0 +1,18 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines()
+
+for c in contents:
+	res = ""
+	if len(c) > 55:
+		res += c[:41]
+		c.strip()
+		res += "... <Read More>"
+		print res
+	elif len(c) != 0:
+		c.strip()
+		print c
+f.close()

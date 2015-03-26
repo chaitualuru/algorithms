@@ -1,0 +1,4 @@
+def split(content):
+	c = content.splitlines()
+	for a in c:
+		

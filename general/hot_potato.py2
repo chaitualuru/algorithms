@@ -1,0 +1,15 @@
+from collections import deque
+
+def hot_potato(players, num):
+	total = num
+	queue = deque(players)
+	while len(queue) > 1:
+		while total > 0:
+			first_out = queue.popleft()
+			queue.append(first_out)
+			total -= 1
+		total = num
+		queue.popleft()
+	return queue[0]
+
+print(hot_potato(["Bill","David","Susan","Jane","Kent","Brad"],7))

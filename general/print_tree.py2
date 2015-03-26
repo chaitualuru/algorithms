@@ -1,0 +1,22 @@
+from collections import deque
+
+if not root:
+	return
+
+q = deque([])
+count = 0
+level = 0
+
+q.append(root)
+count += 1
+
+while q is not none:
+	node = q.popleft()
+	if node.lval:
+		q.append(lval)
+	elif node.rval:
+		q.append(rval)
+
+	if (count -= 1) == 0:
+		count = len(q)
+		level++

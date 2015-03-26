@@ -1,0 +1,33 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.read().splitlines()
+
+def cycle_length(x):
+	count = 1
+	while (x != 1):
+		if x % 2 == 0:
+			x = x/2
+		else:
+			x = (3 * x) + 1
+		count += 1
+	return count
+
+result = ""
+l_count = 0
+for c in contents:
+	each = c.split(" ")
+	start = int(each[0])
+	end = int(each[1])
+	result += each[0] + " "
+	result += each[1] + " "
+	result += str(max(cycle_length(i) for i in range(start, end + 1)))
+	l_count += 1
+	if l_count != len(contents):
+		result += "\n"
+
+print result
+
+

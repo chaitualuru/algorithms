@@ -1,0 +1,21 @@
+def reverse_sentence(st):
+	words = st.split(" ")
+	return ' '.join(words[::-1])
+
+print(reverse_sentence("The quick brown fox jumped over the lazy frog."))
+
+
+def reverse_words(sentence):
+	reverse_characters(sentence)
+	print sentence
+
+def reverse_characters(sentence):
+	front = 0
+	back = len(sentence) - 1
+	while front < back:
+		sentence[front], sentence[back] = sentence[back], sentence[front]
+		front += 1
+		back += 1
+	return sentence
+
+print(reverse_words("The quick brown fox jumped over the lazy frog."))

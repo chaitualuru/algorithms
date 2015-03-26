@@ -1,0 +1,18 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines()
+
+for c in contents:
+	result = []
+	nums = c.strip().split(",")
+	for n in nums:
+		if n not in result:
+			result.append(n)
+	s = ""
+	for r in result:
+		s += r + ","
+	s = s[0:len(s) - 1]
+	print s

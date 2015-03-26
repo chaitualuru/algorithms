@@ -1,0 +1,10 @@
+def rev_string(text):
+	if len(text) == 1:
+		return text[0]
+	else:
+		return text[len(text) - 1] + rev_string(text[0:len(text) - 1])
+
+def rev2(text):
+	return text[::-1]
+
+print rev2('cancel')

@@ -1,0 +1,32 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.read().splitlines()
+
+while contents:
+	negative_sum = 0
+	positive_sum = 0
+	amounts = []
+	length = int(contents[0])
+	if length:
+		result = ""
+		for i in range(1, length + 1):
+			amounts += [float(contents[i])]
+		sum = 0
+		print amounts
+		for a in amounts:
+			sum += a
+		average = sum/len(amounts)
+		for a in amounts:
+			if a > average:
+				positive_sum += a - average
+			elif a < average:
+				negative_sum += average - a
+		if negative_sum > positive_sum:
+			result += str(negative_sum)
+		else:
+			result += str(positive_sum)
+		print result
+	contents = contents[length + 1:len(contents)]

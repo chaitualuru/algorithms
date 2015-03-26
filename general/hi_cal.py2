@@ -1,0 +1,17 @@
+def condense_meeting_times(m_list):
+	sorted_meetings = sorted(m_list)
+	merged_meetings = list()
+	prev_start, prev_end = sorted_meetings[0]
+
+	for cur_start, cur_end in sorted_meetings[1:]:
+		if prev_end >= cur_start:
+			prev_end = max(cur_end, prev_end)
+		else:
+			merged_meetings.append((prev_start,prev_end))
+			prev_start, prev_end = cur_start, cur_end
+
+	merged_meetings.append((prev_start,prev_end))
+
+	return merged_meetings
+
+print(condense_meeting_times([(3,5), (4,8), (0,1)]))

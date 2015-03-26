@@ -1,0 +1,7 @@
+import gc
+
+data = {'abs': 123, 'abc': 123}
+aList = [1,2,3,4,5]
+
+print gc.get_referents(data)
+print gc.get_referents(aList)

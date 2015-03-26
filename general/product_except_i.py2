@@ -1,0 +1,15 @@
+def product_except(nums):
+	len_array = len(nums)
+	product_array = [1] * len_array
+	product = 1
+	for i, v in enumerate(nums):
+		product_array[i] = product
+		product *= v
+	product = 1
+	for i, v in enumerate(nums):
+		ind = len_array - i - 1
+		product_array[ind] *= product
+		product *= nums[ind]
+	return product_array
+
+print(product_except([1,7,3,4]))

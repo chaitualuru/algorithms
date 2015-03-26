@@ -1,0 +1,9 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines()
+
+for c in contents:
+	print c.lower()

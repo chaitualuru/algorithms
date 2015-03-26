@@ -1,0 +1,26 @@
+d = dict()
+
+def check(pattern, text, d):
+	print pattern, text, d
+	if len(pattern) == 0 and len(text) == 0:
+		return True
+	if len(text) == 0 or len(pattern) == 0:
+		return False
+
+	if pattern[0] in d:
+		tmp = d[pattern[0]]
+
+		if len(tmp) > len(text) or text[:len(tmp)] != tmp:
+			return False
+		else:
+			return check(pattern[1:], text[len(tmp):], d)
+	else:
+		for i in range(1, len(text)):
+			d[pattern[0]] = text[:i]
+			if check(pattern[1:], text[i:], d):
+				return True
+			del d[pattern[0]]
+
+	return False
+
+print(check(["a","b","b","a"], "redbluebluered", d))

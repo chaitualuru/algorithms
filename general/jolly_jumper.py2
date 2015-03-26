@@ -1,0 +1,21 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.read().splitlines()
+
+for c in contents:
+	line = c.split(" ")
+	diffs = []
+	for i in range(1, len(line)):
+		diffs += [abs(int(line[i]) - int(line[i - 1]))]
+	max = len(diffs)
+	sorted_diffs = sorted(diffs)
+	not_true = 0
+	for i in range(max):
+		if i + 1 != sorted_diffs[i]:
+			print "Not Jolly"
+			break
+	else:
+		print "Jolly"

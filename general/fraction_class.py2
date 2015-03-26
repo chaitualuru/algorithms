@@ -1,0 +1,72 @@
+class Fraction:
+	def __init__(self, num, den):
+		self.num = num
+		self.den = den
+
+	def getNum(self):
+		return self.num
+
+	def getDen(self):
+		return self.den
+
+	def show(self):
+		print self.num,"/",self.den
+
+	def __str__(self):
+		return str(self.num) + "/" + str(self.den)
+
+	def __add__(self, other):
+		newnum = self.num*other.den + self.den*other.num
+		newden = self.den * other.den
+		common = gcd(newnum,newden)
+		return Fraction(newnum//common,newden//common)
+
+	def __eq__(self, other):
+		return self.num * other.den == other.num * self.den
+
+	def __sub__(self, other):
+		newnum = self.num * other.den - self.den * other.num
+		newden = self.den * other.den
+		common = gcd(newnum, newden)
+		return Fraction(newnum//common, newden//common)
+
+	def __mul__(self, other):
+		newnum = self.num * other.num
+		newden = self.den * other.den
+		common = gcd(newnum,newden)
+		return Fraction(newnum//common, newden//common)
+
+	def __truediv__(self, other):
+		newnum = self.num * other.den
+		newden = self.den * other.num
+		common = gcd(newnum, newden)
+		return Fraction(newnum//common, newden//common)
+
+	def __lt__(self, other):
+		newnum = self.num * other.den
+		newnum1 = self.den * other.num
+
+		return newnum < newnum1
+
+	def __gt__(self, other):
+		newnum = self.num * other.den
+		newnum1 = self.den * other.num
+
+		return newnum > newnum1
+
+def gcd(a, b):
+	while a % b != 0:
+		olda = a
+		oldb = b
+
+		a = oldb
+		b = olda % oldb
+	return b
+
+myf = Fraction(2,8)
+print myf
+f1 = Fraction(1,2)
+f2 = Fraction(1,2)
+print f1.getDen()
+print f1+f2
+print f2 == f1

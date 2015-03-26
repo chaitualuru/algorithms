@@ -1,0 +1,8 @@
+def to_str(num, base):
+	cvrtstring = '0123456789ABCDEF'
+	if num < base:
+		return cvrtstring[num]
+	else:
+		return to_str(num // base, base) + cvrtstring[num % base]
+
+print to_str(23, 16)

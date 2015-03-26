@@ -1,0 +1,17 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines();
+
+for c in contents:
+	nums = c.split(",")
+	n = int(nums[1])
+	cur = 1
+	while n < int(nums[0]):
+		cur += 1
+		n = int(nums[1]) * cur
+	else:
+		print n
+

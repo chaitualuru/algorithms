@@ -1,0 +1,4 @@
+str = 'sadfdf \n asdfdsf \nfdsaf\n'
+print str
+new = str.strip()
+print new

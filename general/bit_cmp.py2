@@ -1,0 +1,14 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines()
+
+for c in contents:
+	nums = c.split(",")
+	s = bin(int(nums[0]))
+	if s[len(s) - int(nums[1])] == s[len(s) - int(nums[2])]:
+		print "true"
+	else:
+		print "false"

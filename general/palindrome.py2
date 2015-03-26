@@ -1,0 +1,24 @@
+from collections import deque
+
+def check_palindrome(text):
+	rev = text[::-1].lower()
+	if rev == text.lower():
+		return True
+	else:
+		return False
+
+def check_palindrome2(text):
+	dq = deque(text.lower())
+	count = len(dq)
+	cont = True
+	while count > 1 and cont:
+		if dq.pop() != dq.popleft():
+			cont = False
+		count -= 2
+	return cont
+
+print(check_palindrome2("radaR"))
+
+
+
+	

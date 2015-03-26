@@ -1,0 +1,10 @@
+def find_odds(s):
+	my_dict = {}
+	for st in s:
+		if st in my_dict:
+			my_dict[st] += 1
+		else:
+			my_dict[st] = 1
+	return [i for i in my_dict.keys() if my_dict[i] % 2 != 0]
+
+print(find_odds('1234123'))

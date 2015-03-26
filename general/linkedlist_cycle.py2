@@ -1,0 +1,29 @@
+def detect_cycle(first_node):
+	point_one = first_node
+	point_two = first_node
+
+	while point_two.next != None and point_two != None:
+		point_one = point_one.next
+		point_two = point_two.next.next
+
+		if point_one == point_two:
+			return True
+
+	return False
+
+# When the tortoise and hare meet, we have found the smallest i 
+# (the number of steps taken by the tortoise) such that Xi = X2i. 
+# Let mu represent the number of steps to get from X0 to the start of the cycle, 
+# and let lambda represent the length of the cycle. Then i = mu + a*lambda, 
+# and 2i = mu + b*lambda, where a and b are integers denoting how
+#  many times the tortoise and hare went around the cycle. 
+# Subtracting the first equation from the second gives i = (b-a)*lambda,
+#  so i is an integer multiple of lambda. Therefore, Xi + mu = Xmu. 
+# Xi represents the meeting point of the tortoise and hare. 
+# If you move the tortoise back to the starting node X0, 
+# and let the tortoise and hare continue at the same speed, 
+# after mu additional steps the tortoise will have reached Xmu,
+#  and the hare will have reached Xi + mu = Xmu, 
+# so the second meeting point denotes the start of the cycle.
+
+# TO-DO: Cycle detection in a directed graph

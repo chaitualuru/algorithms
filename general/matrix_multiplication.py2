@@ -1,0 +1,5 @@
+for i in range(1, len(x) + 1):
+	for j in range(1, len(y) + 1):
+		C[i][j] = 0
+		for k in range(1, len(k) + 1):
+			C[i][j] += A[i][k] * B[k][j]

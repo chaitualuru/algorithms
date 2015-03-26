@@ -1,0 +1,22 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines()
+
+for c in contents:
+	result = ""
+	each = c.split(" ")
+	for x in range(1, int(each[2]) + 1):
+		if x % int(each[0]) == 0 and x % int(each[1]) == 0:
+			result += 'FB '
+		elif x % int(each[0]) == 0:
+			result += 'F '
+		elif x % int(each[1]) == 0:
+			result += 'B '
+		else:
+			result += str(x) + " "
+	print result.strip()
+
+f.close()

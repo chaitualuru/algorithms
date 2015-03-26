@@ -1,0 +1,39 @@
+class Stack:
+     def __init__(self):
+         self.items = []
+
+     def isEmpty(self):
+         return self.items == []
+
+     def push(self, item):
+         self.items.append(item)
+
+     def pop(self):
+         return self.items.pop()
+
+     def peek(self):
+         return self.items[len(self.items)-1]
+
+     def size(self):
+         return len(self.items)
+
+
+str1 = "hello"
+
+def revstring(s):
+    st = Stack()
+    result = ""
+    for i in s:
+        st.push(i)
+    while not st.isEmpty():
+        result += st.pop()
+    print result
+
+revstring(str1)
+
+def revstring2(s):
+    st = list(s)
+    res = [st.pop() for i in range(len(st))]
+    return "".join(res)
+
+print revstring2(str1)

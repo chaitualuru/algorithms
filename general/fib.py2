@@ -1,0 +1,17 @@
+import unittest
+computed = {0: 0, 1: 1}
+
+def fib(x):
+	if x not in computed:
+		computed[x] = fib(x-1) + fib(x-2)
+	return computed[x]
+
+def recursive_fib(n):
+	if n <= 1:
+		return 1
+	else:
+		return recursive_fib(n-1) + recursive_fib(n-2)
+
+print(recursive_fib(7))
+
+self.assertEqual(fib(4), 3)

@@ -1,0 +1,56 @@
+def infix_to_postfix(expression):
+	oper_priority = {'+' : 2, '-' : 1, '*' : 4, '/' : 3, '(' : 0, '^' : 5}
+	output_list = []
+	opstack = []
+	tokenlist = expression.split()
+	for i in tokenlist:
+		if i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789':
+			output_list.append(i)
+		elif i == '(':
+			opstack.append(i)
+		elif i == ')':
+			top = opstack.pop()
+			while top != '(':
+				output_list.append(top)
+				top = opstack.pop()
+		else:
+			while opstack and ((oper_priority[opstack[-1]]) > (oper_priority[i])):
+				output_list.append(opstack.pop())
+			opstack.append(i)
+
+	while opstack:
+		output_list.append(opstack.pop())
+	return " ".join(output_list)
+
+print(infix_to_postfix("A * B + C * D"))
+print(infix_to_postfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+print(infix_to_postfix("5 * 3 ^ ( 4 - 2 )"))
+
+def postfix_evaluate(expression):
+	result = 0
+	valuestack = []
+	tokenlist = expression.split()
+	for i in tokenlist:
+		if i in '0123456789':
+			valuestack.append(int(i))
+		else:
+			if valuestack:
+				first = valuestack.pop()
+				second = valuestack.pop()
+				result = evaluate(i, first, second)
+				valuestack.append(result)
+	return valuestack.pop()
+
+def evaluate(token, A, B):
+	if token == '*':
+		return A * B
+	elif token == '/':
+		return B / A
+	elif token == '-':
+		return B - A
+	else:
+		return A + B
+
+print(postfix_evaluate('7 8 + 3 2 + /'))
+
+

@@ -1,0 +1,16 @@
+def set_zeros(mat):
+	#use sentinel value
+	for i in range(len(mat.rows)):
+		for j in range(len(mat.rows)):
+			if mat[i][j] == 0:
+				for k in range(len(mat.cols)):
+					mat[k][j] == -1
+				for l in range(len(mat.rows)):
+					mat[i][l] == -1
+	replace_sentinels(mat)
+
+def replace_sentinels(m):
+	for i in range(len(m.rows)):
+		for j in range(len(m.cols)):
+			if m[i][j] == -1:
+				m[i][j] == 0

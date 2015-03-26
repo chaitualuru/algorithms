@@ -1,0 +1,6 @@
+def check_rotation(input, st):
+	unrotated = st*2
+	if input in unrotated:
+		return True
+
+print(check_rotation("x", "xy"))

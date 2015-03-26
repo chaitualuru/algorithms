@@ -1,0 +1,22 @@
+def remove_duplicates(s):
+	res = set([])
+	for i in s:
+		res.add(i)
+	return list(res)
+
+print(remove_duplicates("adbdjkfdgfgasasdsad"))
+
+def remove_duplicates2(s):
+	res = set([])
+	read_pos = 0
+	write_pos = 0
+	while read_pos < len(s):
+		if s[read_pos] not in res:
+			res.add(s[read_pos])
+			s[write_pos] = s[read_pos]
+			read_pos += 1
+			write_pos += 1
+		else:
+			read_pos += 1
+
+print(remove_duplicates2("adbdjkfdgfgasasdsad"))

@@ -1,0 +1,22 @@
+def order_left(ls):
+    cur_index = 0
+    for i, v in enumerate(ls):
+        if v == 0:
+            swap(ls, cur_index, i)
+            cur_index += 1
+    return ls
+
+def swap(ls, a, b):
+    ls[a], ls[b] = ls[b], ls[a]
+
+print(order_left([1,2,0,3,0,5]))
+
+def order_right(ls):
+    cur_index = len(ls) - 1
+    for i in range(len(ls) - 1, -1, -1):
+        if ls[i] == 0:
+            swap(ls,cur_index,i)
+            cur_index -= 1
+    return ls
+
+print(order_right([1,2,0,3,0,5]))

@@ -1,0 +1,10 @@
+def get_max_profit(prices):
+	min_price = prices[0]
+	max_profit = 0
+	for i in range(len(prices)):
+		current_price = prices[i]
+		min_price = min(current_price, min_price)
+		max_profit = max(max_profit, current_price - min_price)
+	return max_profit
+
+print(get_max_profit([502,203,650]))

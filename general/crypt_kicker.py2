@@ -1,0 +1,9 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.read().splitlines()
+
+length_words = contents[0]
+word_dict = for i in range(length_words):

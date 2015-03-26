@@ -1,0 +1,4 @@
+def string_segmentation(dict, input):
+	for i in range(len(input)):
+		if input[0:i] in input:
+			result.append(i)

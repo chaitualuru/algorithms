@@ -1,0 +1,7 @@
+for i in range(1, 13):
+	s = ""
+	for j in range(1, 13):
+		s += str(i * j) + " "
+	contents = s.strip().split(" ")
+	print contents
+	

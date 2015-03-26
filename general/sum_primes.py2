@@ -1,0 +1,19 @@
+def is_prime(x):
+	for i in range(2, x):
+		if x % i == 0:
+			return False
+	else:
+		return True
+
+def sum_primes():
+	count = 0
+	result = 0
+	cur = 2
+	while count != 1000:
+		if is_prime(cur):
+			result += cur
+			count += 1
+		cur += 1
+	return result
+
+print sum_primes()

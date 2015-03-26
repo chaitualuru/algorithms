@@ -1,0 +1,112 @@
+
+# Count the number of 1s in a binary representation of an integer
+
+# 3 -> '3'
+# & | ^ >> << ~
+
+#
+# int a = 1 000001
+# a << 1 000010
+# a << 1 000100
+
+int numOnes(int input)
+
+a = 1
+
+input = 
+count = 0
+for i in range(32):
+    if input & a != 0:
+        count += 1
+    a = a << 1
+return count
+
+
+# *********
+
+class Tree(Tree right, Tree left, int val)
+  this.right = right;
+  this.left = left;
+  this.val = val;
+
+
+// printTree(Tree t)
+//                  10                 
+//             5            17            
+//         3              15   20             
+//    -10  4                        25    
+
+# 10
+# 5 17
+# 3 15 20
+# -10 4 25
+
+def printTree(Tree t):
+    #q = q + [1] # Pushing 1 onto queue
+    #q[0] # Access First 
+    #q = q[1:] # "Pop Off first"
+    q = [t.val]
+    count = 1
+    nextCount = 0
+    
+    while len(q) > 0:      
+        s = ""
+        for i in range(count):
+            s += str(q[i]) + " "
+        s.strip()
+        print s
+        originalSize = len(q)
+        for i in range(originalSize):
+            t = q[0]
+            q = [1:]
+            if t.left != None:
+                q += [t.left]
+                count += 1
+            if t.right != None:
+                q += [t.right]
+                count += 1
+     
+###########################################
+
+# 1 2 3 4 5 6 7 8 9
+# G G G G G G B B B
+
+test(revisionNum) -> True if test passed, Otherwise False
+
+def bisect(good, bad):
+    start = good
+    end = bad
+    if (test(start) and !test(end)) and start == end + 1:
+        return end
+    else:
+        mid = (start + end) // 2
+        if (test(mid)):
+            start = mid
+        else:
+            end = mid
+        return bisect(start, end)
+
+######### FIB ##########      
+def fib(n):
+    prev = 1
+    curr = 1
+    count = 2
+    
+    if n <= 2:
+        return 1
+
+    while count < n:
+        newNum = prev + curr
+        prev = curr
+        curr = newNum
+        count++
+        
+    return curr
+
+def fibRec(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    else:
+        return fibRec(n - 1) + fibRec(n - 2)

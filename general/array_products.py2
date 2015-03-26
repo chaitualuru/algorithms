@@ -1,0 +1,13 @@
+def array_product(array):
+	product_before = 1
+	product_after = 1
+	for i in range(len(array)):
+		before = array[i-1]
+		for j in range(len(array[i+1:])):
+			product_after *= array[i+1:][j]
+		array[i] = product_before * product_after
+		product_before *= before
+		print product_before
+	return array
+
+print(array_product([1, 7, 3, 4]))

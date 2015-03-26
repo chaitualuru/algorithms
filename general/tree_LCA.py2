@@ -1,0 +1,2 @@
+# find height of both nodes
+# go to parent until heights are same then go both parents

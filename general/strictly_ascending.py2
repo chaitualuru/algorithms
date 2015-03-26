@@ -1,0 +1,17 @@
+def ascending_seq(n):
+	for i in '012345':
+		print helper(i, n)
+
+def helper(st,n):
+	if len(st) == n:
+		print st
+	else:
+		for i in range(int(st[-1]) + 1, 10):
+			new_st = st + str(i)
+			helper(new_st, n)
+
+
+ascending_seq(5)
+
+		
+			

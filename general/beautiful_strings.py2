@@ -1,0 +1,20 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines()
+
+for c in contents:
+	my_dict = {}
+	result = 0
+	s = c.lower().strip()
+	for i in s:
+		if i in 'abcdefghijklmnopqrstuvwxyz' and i not in my_dict:
+			my_dict[i] = 1
+		elif i in 'abcdefghijklmnopqrstuvwxyz':
+			my_dict[i] += 1
+	results = sorted(my_dict.values(), reverse = True)
+	for r in range(len(results)):
+		result += results[r] * (26 - r)
+	print result

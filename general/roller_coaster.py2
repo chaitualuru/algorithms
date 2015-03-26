@@ -1,0 +1,13 @@
+import sys
+from string import ascii_letters
+
+with open(sys.argv[1], 'r') as input:
+    test_cases = input.read().strip().splitlines()
+
+
+for test in test_cases:
+    uppercase, line = True, []
+    for letter in test:
+        line.append(letter.upper() if letter in ascii_letters and uppercase else letter)
+        uppercase = not uppercase if letter in ascii_letters else uppercase
+    print ''.join(line)

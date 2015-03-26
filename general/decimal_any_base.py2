@@ -1,0 +1,14 @@
+cvrtint = 256
+
+def base_converter(num, base):
+	digits = "0123456789ABCDEF"
+	res_reverse = []
+	while num != 0:
+		res_reverse.append(num % base)
+		num = num // base
+	res_string = ""
+	while res_reverse:
+		res_string += digits[res_reverse.pop()]
+	print res_string
+
+base_converter(cvrtint, 16)

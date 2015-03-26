@@ -1,0 +1,48 @@
+class stack:
+	def __init__(self):
+		self.queue1 = []
+		self.queue2 = []
+
+	def empty(self):
+		return len(self.queue1) == 0 and len(self.queue2) == 0
+
+	def push(self, item):
+		if not queue1:
+			queue1.push(item)
+		else:
+			queue2.push(item)
+			while queue1:
+				val = queue1.popleft()
+				queue2.append(val)
+		queue3 = self.queue2
+		self.queue2 = self.queue1
+		self.queue1 = queue3
+
+	def pop(self):
+		if self.empty():
+			raise Empty
+		else:
+			return self.queue1.popleft()
+
+class st:
+	def __init__(self):
+		self.qu1 = []
+		self.qu2 = []
+
+	def empty(self):
+		return len(self.qu1) == 0 and len(self.qu2) == 0
+
+	def push(self, item):
+		self.qu1.append(item)
+
+	def pop(self):
+		if self.empty():
+			raise Empty
+		else:
+			while len(self.qu1) > 1:
+				val = self.qu1.popleft()
+				self.qu2.append(val)
+			queue3 = self.queue2
+			self.queue2 = self.queue1
+			self.queue1 = queue3
+			return qu2.popleft()

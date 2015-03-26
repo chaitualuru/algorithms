@@ -1,0 +1,39 @@
+class PlayingCard(object):
+	def __init__(self, rank, type):
+		if rank == 'J':
+			self.rank = 11
+		elif rank == 'Q':
+			self.rank = 12
+		elif rank == 'A':
+			self.rank = 1
+		elif rank == 'K':
+			self.rank = 13
+		else:
+			self.rank = rank
+		self.type = type
+
+	def pr(self):
+		if self.rank == 1:
+			print "Ace of", self.type
+		elif self.rank == 11:
+			print "Jack of", self.type
+		elif self.rank == 12:
+			print "Queen of", self.type
+		elif self.rank == 13:
+			print "King of", self.type
+		else:
+			print str(self.rank), "of", self.type
+
+class Deck(object):
+	def __init__(self):
+		self.suits = ["Spades", "Diamonds", "Hearts", "Clubs"]
+		self.ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+	def create_deck(self):
+		deck = [s[0] + str(r) for s in self.suits for r in self.ranks]
+		print deck
+
+
+c1 = PlayingCard(1, "Spades")
+d1 = Deck()
+d1.create_deck()

@@ -1,0 +1,16 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.readlines()
+
+for c in contents:
+	c = c.replace("\n", "")
+	s = ""
+	words = c.split(" ")
+	for i in range(0, len(words)):
+		s += words[len(words) - 1 - i] + " "
+	print s.strip()
+
+f.close()

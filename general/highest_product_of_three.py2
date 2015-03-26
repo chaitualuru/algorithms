@@ -1,0 +1,37 @@
+## nlogn
+def highest_product(nums):
+	sorted_nums = sorted(nums)
+	if len(nums) >= 3:
+		return helper(sorted_nums, 3)
+	else:
+		return helper(sorted_nums, len(nums))
+
+def helper(nums, n):
+	product = 1
+	size = len(nums) - 1
+	while n > 0:
+		product *= nums[size - n + 1]
+		n -= 1
+	return product
+	
+
+print(highest_product([5,2,7,4]))
+
+## linear
+def high_product(nums):
+	if len(nums) < 3:
+		raise Exception("Less than 3 items.")
+	hpoth = nums[0] * nums[1] * nums[2]
+	hpot = nums[0] * nums[1]
+	highest = max(nums[0], nums[1])
+	lpot = nums[0] * nums[1]
+	lowest = min(nums[0], nums[1])
+	for n in nums[2:]:
+		hpoth = max(hpoth, hpot * n, lpot * n)
+		hpot = max(hpot, highest * n)
+		lpot = min(lpot, lowest * n)
+		highest = max(n, highest)
+		lowest = max(n, lowest)
+	return hpoth
+
+print(high_product([5,2,7,4]))

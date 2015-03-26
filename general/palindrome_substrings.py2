@@ -1,0 +1,22 @@
+def palindrome_substrings(s):
+	result = set([])
+	for i in range(len(s)):
+		for j in check_palindrome(s, i-1, i+1):
+			result.add(j)
+		for k in check_palindrome(s, i, i+1):
+			result.add(k)
+	return list(result)
+
+def check_palindrome(a, j, k):
+	result = set([])
+	while j >= 0 and k < len(a):
+		if a[j] != a[k]:
+			break
+		result.add(a[j:k+1])
+		j -= 1
+		k += 1
+	return result
+
+print(palindrome_substrings("aabbbaa")) 
+	
+

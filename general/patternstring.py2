@@ -1,0 +1,29 @@
+matches = dict()
+ 
+def search(pattern, string):
+    maxMatchLen = len(string)
+    while(maxMatchLen != 0):
+        match = string[0:maxMatchLen]
+        head = pattern[0]
+        matchesSetHere = False
+        if head not in matches:
+            matches[head] = match
+            matchesSetHere = True
+        if matches[head] == match:
+            if len(pattern) > 1:
+                tail = pattern[1:]
+                remainingString = string[len(match):]
+                if len(remainingString) > 0:
+                    if search(tail, remainingString):
+                        return True
+                else:
+                # We've implicitly checked the desired pattern is matched
+                return True
+        if matchesSetHere: del matches[head]
+ 
+        maxMatchLen -= 1
+    return False
+ 
+print("ok") if search(["a", "b", "a", "b"], "redblueredblue") else print("nok")
+print("ok") if search(["a", "b", "b", "a"], "catdogdogcat") else print("nok")
+print("ok") if search(["a", "b", "a", "b"], "redblueredblue") else print("nok")

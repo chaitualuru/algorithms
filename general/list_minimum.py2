@@ -1,0 +1,9 @@
+nums = [44,5,2,3,123,21,90,-10,-30,-50]
+
+minimum = nums[0]
+
+for i in nums:
+	if i < minimum:
+		minimum = i
+
+print minimum

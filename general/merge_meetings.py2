@@ -1,0 +1,15 @@
+def get_rooms(meetings):
+	result = list()
+	meetings_by_start = sorted(meetings)
+	for m in meetings_by_start:
+		if not result:
+			result.append(m[1])
+		else:
+			for i in range(len(result)):
+				if m[0] <= result[i]:
+					result.append(m[1])
+			else:
+				result[0] = m[1]
+	return len(result)
+
+print(get_rooms([[2,7],[1,5],[13,24]]))

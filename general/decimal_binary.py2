@@ -1,0 +1,10 @@
+cvrtint = 23
+
+res = []
+while cvrtint != 0:
+	res.append(cvrtint % 2)
+	cvrtint = cvrtint // 2
+st = ""
+while res:
+	st += str(res.pop())
+print st

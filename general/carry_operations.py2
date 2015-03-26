@@ -1,0 +1,27 @@
+from sys import argv
+
+script, filename = argv
+
+with open(filename) as f:
+	contents = f.read().splitlines()
+
+for c in contents:
+	line = c.split(" ")
+	a = int(line[0])
+	b = int(line[1])
+	if a == 0 and b == 0:
+		break
+	count = 0
+	c = 0
+	while a and b:
+		c = a % 10 + b % 10 + c
+		# if c > 9:
+		# 	count += 1
+		# 	c = 1
+		# else:
+		# 	c = 0
+		c = int(c > 9)
+		count += c
+		a //= 10
+		b //= 10
+	print '%d' % count

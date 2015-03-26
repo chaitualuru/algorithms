@@ -1,0 +1,25 @@
+string = "()(){[]}{}{}"
+
+st = list()
+is_unbalanced = False
+last = ""
+opens = "([{"
+closes = ")]}"
+for i in string:
+	if i in opens:
+		st.append(i)
+	elif i in closes:
+		if st:
+			top = st.pop()
+			if opens.index(top) != closes.index(i):
+				is_unbalanced = True
+				break
+		else:
+			is_unbalanced = True
+			break
+
+if st or is_unbalanced:
+	print "Unbalanced"
+else:
+	print "Balanced"
+

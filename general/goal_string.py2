@@ -1,0 +1,19 @@
+import random
+
+def generate(strlen):
+	alphabet = "abcdefghijklmnopqrstuvwxyz "
+	result = ""
+	for i in range(strlen):
+		result += alphabet[random.randrange(27)]
+	return result
+
+goal = "methinks it is like a weasel"
+
+def score(str1, test):
+	scoreEqual = 0
+	for i in range(len(str1)):
+		if str1[i] == test[i]:
+			scoreEqual += 1
+	return scoreEqual
+
+print score(goal, generate(28))
