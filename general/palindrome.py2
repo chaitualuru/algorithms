@@ -17,6 +17,20 @@ def check_palindrome2(text):
 		count -= 2
 	return cont
 
+def check_palindrome(st):
+	st_len = len(st)
+	start = 0
+	end = st_len - 1
+
+	while start < st_len:
+		if st[start] != st[end]:
+			return False
+		else:
+			start += 1
+			end -= 1
+
+	return True
+
 print(check_palindrome2("radaR"))
 
 
