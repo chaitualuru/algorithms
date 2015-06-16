@@ -1,16 +1,35 @@
+"""Merge Meetings"""
+
 def merge_meetings(meetings):
-	result = []
-	meeting_sort = sorted(meetings)
-	prev_start = meeting_sort[0][0]
-	prev_end = meeting_sort[0][1]
-	for m in meeting_sort[1:]:
-		if m[0] > prev_end:
-			result.append((prev_start, prev_end))
-			prev_end = m[1]
-			prev_start = m[0]
+	"""Returns merged meeting times."""
+	if not meetings:
+		return None
+	sorted_meetings = sorted(meetings)
+	start = sorted_meetings[0][0]
+	end = sorted_meetings[0][1]
+	result = list()
+	for meeting in sorted_meetings[1:]:
+		if end >= meeting[0]:
+			end = max(end, meeting[1])
 		else:
-			prev_end = m[1]
-	result.append((prev_start,prev_end))
+			result.append((start, end))
+			start = meeting[0]
+			end = meeting[1]
+	result.append((start, end))
 	return result
 
-print merge_meetings([(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)])
+def main():
+	"""Entry point for the program."""	
+	# None
+	print merge_meetings([])
+	# [(1, 3)]
+	print merge_meetings([(1, 3)])
+	# [(1, 5)]
+	print merge_meetings([(1, 3), (2, 5)])
+	# [(1, 8), (9, 13)]
+	print merge_meetings([(1, 4), (10, 12), (2, 7), (6, 8), (9, 13)])
+	# [(1, 10)]
+	print merge_meetings([(1, 10), (2, 6), (3, 5), (7,9)])
+	
+if __name__ == '__main__':
+	main()

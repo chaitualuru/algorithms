@@ -1,4 +1,4 @@
- We'll use the first egg to get a range of possible floors that contain the highest floor an egg can be dropped from without breaking. To do this, we'll drop it from increasingly higher floors until it breaks, skipping some number of floors each time.
+We'll use the first egg to get a range of possible floors that contain the highest floor an egg can be dropped from without breaking. To do this, we'll drop it from increasingly higher floors until it breaks, skipping some number of floors each time.
 
 When the first egg breaks, we'll use the second egg to find the exact highest floor an egg can be dropped from. We only have to drop the second egg starting from the last floor where the first egg didn't break, up to the floor where the first egg did break. But we have to drop the second egg one floor at a time.
 
