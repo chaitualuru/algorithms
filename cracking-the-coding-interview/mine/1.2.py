@@ -1,13 +1,14 @@
 import unittest
 
 def reverse_string(S):
-	start = 0
-	end = len(S) - 1
-	while start != end and end != start + 1:
-		S[start], S[end] = S[end], S[start]
-		end -= 1
-		start += 1
-	return S
+    start = 0
+    end = len(S) - 1
+    st_list = list(S)
+    while start != end and start != end + 1:
+        st_list[start], st_list[end] = st_list[end], st_list[start]
+        end -= 1
+        start += 1
+    return ''.join(st_list)
 
 class ReverseStringTester(unittest.TestCase):
 	TEST_DATA = [('a', 'a'),
